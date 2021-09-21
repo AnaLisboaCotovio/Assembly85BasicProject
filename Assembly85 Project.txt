@@ -1,0 +1,33 @@
+Inserted values from AA00 to AA06 were done by hand.
+If you don't want to instert manually the values, 
+here goes a code to load them:
+
+MVI A, 7Ah
+STA AA00h
+MVI A, 80h
+STA AA01h
+MVI A, 3Dh
+STA AA02h
+MVI A, FFh
+STA AA03h
+MVI A, E5h
+STA AA04h
+MVI A, BBh
+STA AA05h
+MVI A, C9h
+STA AA06h
+HLT
+
+Program:
+MVI	C, 07h	
+LXI	D, AA00h
+LXI	H, AAAAh	
+Copy: XCHG
+MOV	A, M
+STAX	D
+XCHG
+INX	D
+INX	H	
+DCR	C	
+JNZ	Copy
+HLT
